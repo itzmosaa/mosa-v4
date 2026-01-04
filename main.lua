@@ -107,6 +107,17 @@ end
 vape = loadstring(downloadFile('ReVape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
+-- Global filter: suppress permission-denied notifications immediately
+do
+	local _origNotify = vape.CreateNotification
+	vape.CreateNotification = function(self, title, text, ...)
+		if text and tostring(text):lower():find('you do not have permission') then
+			return
+		end
+		return _origNotify(self, title, text, ...)
+	end
+end
+
 -- Ensure global display role exists and default to guest
 getgenv().role = getgenv().role or "guest"
 
