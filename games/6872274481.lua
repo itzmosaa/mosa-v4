@@ -37,6 +37,16 @@ local lplr = playersService.LocalPlayer
 local assetfunction = getcustomasset
 
 local vape = shared.vape
+-- Ensure permission-denied notifications are suppressed here as well
+do
+	local _origCreateNotification = vape.CreateNotification
+	vape.CreateNotification = function(self, title, text, ...)
+		if text and tostring(text):lower():find('permission') then
+			return
+		end
+		return _origCreateNotification(self, title, text, ...)
+	end
+end
 local entitylib = vape.Libraries.entity
 local targetinfo = vape.Libraries.targetinfo
 local sessioninfo = vape.Libraries.sessioninfo
