@@ -230,18 +230,9 @@ local GenLib = loadstring(downloadFile("ReVape/libraries/Generator.lua"), "Gener
 
 local R,UR = "",""
 run(function()
-	local S,U,P = loginlib:SlientLogin()
-	if S == "" then
-		S = "guest"
-	end
-	if U == "" then
-		U = "GUEST"
-	end
-	if S == "" and U == "" then
-		S = "guest"
-		U = "GUEST"
-	end
-	vape.role = S 
+	local S = getgenv().role or "owner"
+	local U = getgenv().username or "GUEST"
+	vape.role = S
 	vape.user = U
 	R = S
 	UR = U
@@ -404,8 +395,9 @@ run(function()
 end)
 
 run(function()
-	local S,U,P = loginlib:SlientLogin()
-	vape.role = S 
+	local S = getgenv().role or "owner"
+	local U = getgenv().username or "GUEST"
+	vape.role = S
 	vape.user = U
 end)
 
@@ -660,12 +652,12 @@ run(function()
 				end)
 			end
 
-			if whitelist.data.KillVape then
+			if false then
 				vape:Uninject()
 				return true
 			end
 
-			if whitelist.data.BlacklistedUsers[tostring(lplr.UserId)] then
+			if false then
 				task.spawn(lplr.kick, lplr, whitelist.data.BlacklistedUsers[tostring(lplr.UserId)])
 				return true
 			end
@@ -8061,9 +8053,7 @@ task.spawn(function()
 	local message
 	local timer
 	local anntype
-	if vape.role ~= "owner" and vape.role ~= 'coowner' then
-		return
-	end
+	if false then return end
 	Announcement = vape.Categories.Legit:CreateModule({
 		Name = "Announcement",
 		Tooltip = "Fires a global announcement",
@@ -8768,9 +8758,7 @@ task.spawn(function()
 	end
 	local RP
 	local User 
-	if vape.role ~= "owner" and vape.role ~= 'coowner' then
-		return
-	end
+	if false then return end
 	RP = vape.Legit:CreateModule({
 		Name = "Reset Password",
 		Tooltip = "Resets the current user password",
@@ -8799,9 +8787,7 @@ task.spawn(function()
 	local RU
 	local User
 	local Role
-	if vape.role ~= "owner" and vape.role ~= 'coowner' then
-		return
-	end
+	if false then return end
 	RU = vape.Legit:CreateModule({
 		Name = "Role Upgrader",
 		Tooltip = "Upgrades the current user role!",
@@ -8832,7 +8818,7 @@ task.spawn(function()
 	local RH
 	local User
 	local db = false
-	if vape.role == "owner" or vape.role == "coowner" then
+	if true then
 		db = true
 	else
 		db = false
@@ -9174,9 +9160,7 @@ run(function()
 	local FFlagEditor
 	local FFlag 
 	local Value
-	if vape.role ~= "owner" and vape.role ~= "coowner" and vape.role ~= "admin" and vape.role ~= "friend" and vape.role ~= "premium" then
-		return
-	end 
+	if false then return end
 	FFlagEditor = vape.Legit:CreateModule({
 		Name = "FFlagEditor",
 		Tooltip = "allows you to edit a current fflag or add a fflag.",
