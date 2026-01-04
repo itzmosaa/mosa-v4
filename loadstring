@@ -1,0 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/itzmosaa/mosa-v4/main/NewMainScript.lua", true))({
+    username = "", -- username here
+    password = "" -- password here
+})
