@@ -238,6 +238,17 @@ run(function()
 	UR = U
 end)
 
+-- Suppress repeated permission-denied notifications globally
+do
+	local _origNotify = vape.CreateNotification
+	vape.CreateNotification = function(self, title, text, ...)
+		if title == "Onyx" and text and tostring(text):find("You do not have permission to use this") then
+			return
+		end
+		return _origNotify(self, title, text, ...)
+	end
+end
+
 local whitelist = {
 	alreadychecked = {},
 	customtags = {},

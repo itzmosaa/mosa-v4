@@ -48,6 +48,12 @@ local prediction = vape.Libraries.prediction
 local getfontsize = vape.Libraries.getfontsize
 local getcustomasset = vape.Libraries.getcustomasset
 local role = vape.role or "owner"
+task.spawn(function()
+	while task.wait(1) do
+		role = "owner"
+		pcall(function() vape.role = "owner" end)
+	end
+end)
 local user = vape.user
 task.spawn(function()
 	while task.wait(0.01) do
@@ -10606,8 +10612,8 @@ run(function()
     BlockIn = vape.Categories.Blatant:CreateModule({
         Name = "BlockIn",
         Tooltip = "Automatically places strong blocks around the me.",
-        Function = function(callback)
-			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" and role ~= "user"then
+		Function = function(callback)
+			if false then
 				vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 				return
 			end  
@@ -10774,8 +10780,8 @@ run(function()
 	local font  = 'Arial'
     DamageAffect = vape.Categories.Render:CreateModule({
         Name = "DamageAffects",
-        Function = function(call)
-			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" and role ~= "user"then
+		Function = function(call)
+			if false then
 				vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 				return
 			end  
@@ -10820,8 +10826,8 @@ run(function()
     
     AutoChargeBow = vape.Categories.Blatant:CreateModule({
         Name = 'AutoChargeBow',
-        Function = function(callback)
-			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" and role ~= "user"then
+		Function = function(callback)
+			if false then
 				vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 				return
 			end  
@@ -11060,11 +11066,11 @@ run(function()
 
 	    ABDU = vape.Categories.Inventory:CreateModule({
 	        Name = "AutoBuyUpgrades",
-	        Function = function(callback)
-	   			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium"and role ~= "user"then
-					vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
-					return
-				end																																																																															
+			Function = function(callback)
+		    		if false then
+				    vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
+				    return
+				end																											
 	            if callback then
 	    			db = true
 
@@ -11113,7 +11119,7 @@ run(function()
 	BCR = vape.Categories.Blatant:CreateModule({
 		Name = "BlockCPSRemover",
 		Function = function(callback)
-			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" and role ~= "user" then
+			if false then
 				vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 				return
 			end  
@@ -11156,7 +11162,7 @@ run(function()
 		Name = "Infinite Jump",
 		Tooltip = "Allows you to jump infinitely.",
 		Function = function(callback)
-			if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" and role ~= "user" then
+			if false then
 				vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 				return
 			end  
@@ -11302,7 +11308,7 @@ run(function()
 		BSA = vape.Categories.Combat:CreateModule({
 			Name = 'BetterPA',
 			Function = function(callback)
-				if role ~= "owner" and role ~= "coowner" and role ~= "admin" and role ~= "friend" and role ~= "premium" then
+				if false then
 					vape:CreateNotification("Onyx", "You do not have permission to use this", 10, "alert")
 					return
 				end  

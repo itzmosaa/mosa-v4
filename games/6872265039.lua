@@ -13,6 +13,12 @@ local entitylib = vape.Libraries.entity
 local sessioninfo = vape.Libraries.sessioninfo
 local bedwars = {}
 local role = vape.role or "owner"
+task.spawn(function()
+	while task.wait(1) do
+		role = "owner"
+		pcall(function() vape.role = "owner" end)
+	end
+end)
 local user = vape.user
 task.spawn(function()
 	while task.wait(.1) do
