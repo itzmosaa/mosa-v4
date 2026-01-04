@@ -230,11 +230,12 @@ local GenLib = loadstring(downloadFile("ReVape/libraries/Generator.lua"), "Gener
 
 local R,UR = "",""
 run(function()
-	local S = getgenv().role or "owner"
 	local U = getgenv().username or "GUEST"
-	vape.role = S
+	-- keep displayed global role (getgenv().role) as set by the user (defaults to "guest"),
+	-- but enforce internal role used by feature checks to "owner"
+	vape.role = "owner"
 	vape.user = U
-	R = S
+	R = "owner"
 	UR = U
 end)
 
@@ -406,9 +407,8 @@ run(function()
 end)
 
 run(function()
-	local S = getgenv().role or "owner"
 	local U = getgenv().username or "GUEST"
-	vape.role = S
+	vape.role = "owner"
 	vape.user = U
 end)
 
