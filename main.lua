@@ -107,8 +107,8 @@ end
 vape = loadstring(downloadFile('ReVape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
--- Ensure global role exists and default to owner to disable premium gating
-getgenv().role = getgenv().role or "owner"
+-- Ensure global display role exists and default to guest
+getgenv().role = getgenv().role or "guest"
 
 task.spawn(function()
 	if getgenv().Closet then
